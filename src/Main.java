@@ -1,17 +1,32 @@
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
+
 public class Main {
     public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.println("Hello and welcome!");
+        //dichiaro tutto ciò che mi serve tra stringhe, numeri e array al fine di eseguire le operazioni
+        int numb1 = 3;
+        int numb2 = 8;
+        String word = "It's";
+        String[] arrayOfWords = {"I", "believe", "world", "beautiful", "place"};
+        int positionNewWord = 3;
 
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        //eseguo tutte le operaioni (moltiplico, concateno e aggoungo elementi ad array
+        int result = numb1 * numb2;
+        String result2 = word + ' ' + numb1;
+        String[] newArrayOfWords = new String[arrayOfWords.length + 1];
+        IntStream.range(0, positionNewWord).forEach(i -> newArrayOfWords[i] = arrayOfWords[i]);
+        newArrayOfWords[positionNewWord] = word;
+        IntStream.range(positionNewWord + 1, newArrayOfWords.length).forEach(i -> newArrayOfWords[i] = arrayOfWords[i - 1]);
 
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
-        }
+        //stampo il risultato in console per verificare che sia andato tutto bene
+        System.out.println("The result of the operation is: " + result);
+        System.out.println("The result2 " + result2);
+        System.out.println("The new Array is: " + Arrays.toString(newArrayOfWords));
     }
+    // ho cercato metodi su intrnet, come primo giorno la struttura delle varie operazioni mi risultava poco chiara.
+    // ho inoltre espolrato tra i suggerimenti dell'editor.
+    // ho raggruppato tutto in un'unica funzione poichè avevo provato a dividere gli erecizi e riscontravo più errori.
 }
